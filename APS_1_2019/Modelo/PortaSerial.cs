@@ -10,7 +10,6 @@ namespace APS_1_2019.Modelo
         public new void Executar()
         {
             this.mensagem = "";
-            Configuracao config = new Configuracao();
             SerialPort arduinoData = new SerialPort();
 
             try

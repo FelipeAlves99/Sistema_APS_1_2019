@@ -58,7 +58,7 @@ namespace APS_1_2019
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            if (File.Exists("ConfiguracaoArduino.txt"))
+            if (File.Exists(Configuracao.caminhoDoc + @"\ConfiguracaoArduino.txt"))
             {
                 TimerArduino.Start();
                 Configuracao config = new Configuracao();

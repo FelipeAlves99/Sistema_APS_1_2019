@@ -9,7 +9,7 @@ namespace APS_1_2019.Modelo
         {
             try
             {
-                StreamReader arquivo = new StreamReader("ConfiguracaoArduino.txt");
+                StreamReader arquivo = new StreamReader(Configuracao.caminhoDoc + @"\ConfiguracaoArduino.txt");
                 nomePorta = arquivo.ReadLine();
                 freqBaud = Convert.ToInt32(arquivo.ReadLine());
                 caminhoDoc = arquivo.ReadLine();
@@ -22,6 +22,6 @@ namespace APS_1_2019.Modelo
         
         public static String nomePorta; 
         public static int freqBaud;
-        public static String caminhoDoc = @"" + caminhoDoc;
+        public static String caminhoDoc = @"C:\APS3";
     }
 }

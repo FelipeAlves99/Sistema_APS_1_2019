@@ -1,13 +1,6 @@
 ﻿using APS_1_2019.Modelo;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace APS_1_2019.Apresentacao
@@ -25,9 +18,15 @@ namespace APS_1_2019.Apresentacao
         {
             try
             {
-                if (File.Exists("ConfiguracaoArduino.txt"))
+                if (!Directory.Exists(Configuracao.caminhoDoc))
                 {
-                    StreamReader arquivo = new StreamReader("ConfiguracaoArduino.txt");
+                    DirectoryInfo di = Directory.CreateDirectory(Configuracao.caminhoDoc);
+                    MessageBox.Show("Um novo diretório foi criado para seu programa!\nCaminho: " + Configuracao.caminhoDoc, "Criação de diretório", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                if (File.Exists(Configuracao.caminhoDoc + @"\ConfiguracaoArduino.txt"))
+                {
+                    StreamReader arquivo = new StreamReader(Configuracao.caminhoDoc + @"\ConfiguracaoArduino.txt");
                     txtPorta.Text = arquivo.ReadLine();
                     txtBaud.Text = arquivo.ReadLine();
                     txtPath.Text = arquivo.ReadLine();
@@ -41,7 +40,8 @@ namespace APS_1_2019.Apresentacao
                 }
                 else
                 {
-                    File.Create("ConfiguracaoArduino.txt");
+                    txtPath.Text = Configuracao.caminhoDoc;
+                    //File.Create(Configuracao.caminhoDoc + @"\ConfiguracaoArduino.txt"); será feito no botão editar/salvar
                 }
             }
             catch (Exception ex)
@@ -57,7 +57,6 @@ namespace APS_1_2019.Apresentacao
                 btnCancelar.Visible = false;
                 btnEditar.Text = "Editar";
                 txtBaud.Enabled = false;
-                txtPath.Enabled = false;
                 txtPorta.Enabled = false;
             }
         }
@@ -67,7 +66,6 @@ namespace APS_1_2019.Apresentacao
             if(btnEditar.Text == "Editar")
             {
                 txtBaud.Enabled = true;
-                txtPath.Enabled = true;
                 txtPorta.Enabled = true;
                 btnEditar.Text = "Salvar";
                 btnCancelar.Visible = true;
@@ -76,7 +74,7 @@ namespace APS_1_2019.Apresentacao
             {
                 try
                 {
-                    StreamWriter arquivo = new StreamWriter("ConfiguracaoArduino.txt", false);
+                    StreamWriter arquivo = new StreamWriter(Configuracao.caminhoDoc + @"\ConfiguracaoArduino.txt", false);
                     arquivo.WriteLine(txtPorta.Text);
                     arquivo.WriteLine(txtBaud.Text);
                     arquivo.WriteLine(txtPath.Text);
@@ -87,7 +85,6 @@ namespace APS_1_2019.Apresentacao
                     btnCancelar.Visible = false;
                     btnEditar.Text = "Editar";
                     txtBaud.Enabled = false;
-                    txtPath.Enabled = false;
                     txtPorta.Enabled = false;
                 }
                 catch (Exception ex)

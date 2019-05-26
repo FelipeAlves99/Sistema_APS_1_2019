@@ -33,9 +33,5 @@ namespace APS_1_2019.Modelo
             set { this.resistChuva = value; }
         }
         protected String dados;
-
-        public void Executar()
-        {      
-        }
     }
 }
