@@ -6,13 +6,16 @@ namespace APS_1_2019.Modelo
     {
         public String mensagem;
         protected String[] arduinoinfo;
-        protected String temperatura;
+        protected String dados;
+
         protected String estadoChuva;
         public String EstadoChuva
         {
             get { return estadoChuva; }
             set { this.estadoChuva = value; }
         }
+
+        protected String temperatura;
         public String Temperatura
         {
             get { return temperatura; }
@@ -32,6 +35,5 @@ namespace APS_1_2019.Modelo
             get { return resistChuva; }
             set { this.resistChuva = value; }
         }
-        protected String dados;
     }
 }

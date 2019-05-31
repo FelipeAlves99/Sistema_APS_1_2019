@@ -25,7 +25,7 @@ namespace APS_1_2019
             }
             else
             {
-                DialogResult resultado = MessageBox.Show(controle.mensagem, "Erro de leitura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(controle.mensagem, "Erro de leitura", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -52,13 +52,13 @@ namespace APS_1_2019
             }
             else
             {
-                DialogResult resultado = MessageBox.Show(controle.mensagem, "Erro de leitura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(controle.mensagem, "Erro de leitura", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            if (File.Exists(Configuracao.caminhoDoc + @"\ConfiguracaoArduino.txt"))
+            if (File.Exists(@"ConfiguracaoArduino.txt"))
             {
                 TimerArduino.Start();
                 Configuracao config = new Configuracao();
@@ -68,6 +68,7 @@ namespace APS_1_2019
             {
                 frmConfiguracao frmC = new frmConfiguracao();
                 frmC.ShowDialog();
+                Configuracao config = new Configuracao();
             }
         }
     }

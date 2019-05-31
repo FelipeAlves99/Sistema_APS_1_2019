@@ -18,15 +18,9 @@ namespace APS_1_2019.Apresentacao
         {
             try
             {
-                if (!Directory.Exists(Configuracao.caminhoDoc))
+                if (File.Exists(@"ConfiguracaoArduino.txt"))
                 {
-                    DirectoryInfo di = Directory.CreateDirectory(Configuracao.caminhoDoc);
-                    MessageBox.Show("Um novo diretório foi criado para seu programa!\nCaminho: " + Configuracao.caminhoDoc, "Criação de diretório", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-                if (File.Exists(Configuracao.caminhoDoc + @"\ConfiguracaoArduino.txt"))
-                {
-                    StreamReader arquivo = new StreamReader(Configuracao.caminhoDoc + @"\ConfiguracaoArduino.txt");
+                    StreamReader arquivo = new StreamReader(@"ConfiguracaoArduino.txt");
                     txtPorta.Text = arquivo.ReadLine();
                     txtBaud.Text = arquivo.ReadLine();
                     txtPath.Text = arquivo.ReadLine();
@@ -41,7 +35,6 @@ namespace APS_1_2019.Apresentacao
                 else
                 {
                     txtPath.Text = Configuracao.caminhoDoc;
-                    //File.Create(Configuracao.caminhoDoc + @"\ConfiguracaoArduino.txt"); será feito no botão editar/salvar
                 }
             }
             catch (Exception ex)
@@ -74,7 +67,7 @@ namespace APS_1_2019.Apresentacao
             {
                 try
                 {
-                    StreamWriter arquivo = new StreamWriter(Configuracao.caminhoDoc + @"\ConfiguracaoArduino.txt", false);
+                    StreamWriter arquivo = new StreamWriter(@"ConfiguracaoArduino.txt", false);
                     arquivo.WriteLine(txtPorta.Text);
                     arquivo.WriteLine(txtBaud.Text);
                     arquivo.WriteLine(txtPath.Text);

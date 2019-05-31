@@ -7,36 +7,36 @@ namespace APS_1_2019.Modelo
     public class Controle : absPropriedades
     {
 
-        public new void Executar()
+        public void Executar()
         {
             try
             {
                 this.mensagem = "";
-                PortaSerial serial = new PortaSerial(); //puxa os dados do arduino
+                PortaSerial serial = new PortaSerial(); 
+
                 if (serial.mensagem.Equals(""))
                 {
+                    //salva os dados que serão utilizados no arquivo .JSON
                     DadosJSON dadosArduino = new DadosJSON()
                     {
                         Temperatura = serial.Temperatura,
-                        Umidade = serial.Umidade,           //salva os dados que serão utilizados no arquivo .JSON
+                        Umidade = serial.Umidade,           
                         EstadoChuva = serial.EstadoChuva
                     };
 
+                    //realiza a criação do arquivo JSON
                     string dadosJSON = JsonConvert.SerializeObject(dadosArduino);
-                    File.WriteAllText(path: Configuracao.caminhoDoc + @"\dadosArduino.json", contents: dadosJSON); //cria o arquivo .JSON que será utilizado pelo site
+                    File.WriteAllText(path: Configuracao.caminhoDoc + @"\dataArduino.json", contents: dadosJSON);
 
+                    //puxa os dados da Porta Serial que será mostrado no formulário.
                     this.temperatura = serial.Temperatura;
-                    this.umidade = serial.Umidade;          //puxa os dados da Porta Serial que será mostrado no formulário.
+                    this.umidade = serial.Umidade;          
                     this.estadoChuva = serial.EstadoChuva;
                 }
                 else
                 {
                     this.mensagem = serial.mensagem;
                 }
-            }
-            catch(DirectoryNotFoundException)
-            {
-                this.mensagem = "Diretório " + Configuracao.caminhoDoc + " não foi encontrado ou não pode ser acessado.";
             }
             catch(IOException)
             {

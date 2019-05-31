@@ -148,7 +148,7 @@
             // 
             // TimerArduino
             // 
-            this.TimerArduino.Interval = 30000;
+            this.TimerArduino.Interval = 60000;
             this.TimerArduino.Tick += new System.EventHandler(this.TimerArduino_Tick);
             // 
             // frmPrincipal

@@ -73,6 +73,7 @@
     <Compile Include="Modelo\Controle.cs" />
     <Compile Include="Modelo\DadosJSON.cs" />
     <Compile Include="Modelo\PortaSerial.cs" />
+    <Compile Include="Modelo\ValidacaoChuva.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Apresentacao\frmConfiguracao.resx">
       <DependentUpon>frmConfiguracao.cs</DependentUpon>
