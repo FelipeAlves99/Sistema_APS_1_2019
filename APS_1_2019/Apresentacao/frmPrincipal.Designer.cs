@@ -47,9 +47,9 @@
             // 
             this.btnChecar.Location = new System.Drawing.Point(254, 65);
             this.btnChecar.Name = "btnChecar";
-            this.btnChecar.Size = new System.Drawing.Size(100, 38);
+            this.btnChecar.Size = new System.Drawing.Size(100, 30);
             this.btnChecar.TabIndex = 1;
-            this.btnChecar.Text = "Checar Temperatura";
+            this.btnChecar.Text = "Checar Arduino";
             this.btnChecar.UseVisualStyleBackColor = true;
             this.btnChecar.Click += new System.EventHandler(this.BtnChecar_Click);
             // 
@@ -128,7 +128,7 @@
             // 
             // btnConfig
             // 
-            this.btnConfig.Location = new System.Drawing.Point(254, 118);
+            this.btnConfig.Location = new System.Drawing.Point(254, 111);
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(100, 30);
             this.btnConfig.TabIndex = 2;
@@ -138,7 +138,7 @@
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(254, 163);
+            this.btnSair.Location = new System.Drawing.Point(254, 157);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(100, 30);
             this.btnSair.TabIndex = 3;

@@ -24,6 +24,6 @@ namespace APS_1_2019.Modelo
         //são statics para serem chamadas em qualquer parte do programa.
         public static String nomePorta; 
         public static int freqBaud;
-        public static String caminhoDoc = @"C:\UNIP-APS\aps-terceiro-semestre\frontend\src\data"; // caminho padrão do diretório pro JSON
+        public static String caminhoDoc = @"C:\UNIP-APS\frontend\src\data"; // caminho padrão do diretório pro JSON
     }
 }

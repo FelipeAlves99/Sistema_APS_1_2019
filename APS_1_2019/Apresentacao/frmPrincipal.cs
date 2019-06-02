@@ -13,7 +13,6 @@ namespace APS_1_2019
             InitializeComponent();
         }
 
-
         private void BtnChecar_Click(object sender, EventArgs e)
         {
             Controle controle = new Controle();
@@ -22,6 +21,7 @@ namespace APS_1_2019
                 lblTemperatura.Text = controle.Temperatura;
                 lblUmidade.Text = controle.Umidade;
                 lblChuva.Text = controle.EstadoChuva;
+                
             }
             else
             {
@@ -69,6 +69,7 @@ namespace APS_1_2019
                 frmConfiguracao frmC = new frmConfiguracao();
                 frmC.ShowDialog();
                 Configuracao config = new Configuracao();
+                config.Executar();
             }
         }
     }

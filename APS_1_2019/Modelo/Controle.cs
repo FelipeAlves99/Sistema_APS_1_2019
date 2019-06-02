@@ -38,9 +38,9 @@ namespace APS_1_2019.Modelo
                     this.mensagem = serial.mensagem;
                 }
             }
-            catch(IOException)
+            catch(IOException e)
             {
-                this.mensagem = "A porta serial " + Configuracao.nomePorta + " não pode ser acessada. Talvez a porta de entrada esteja errada.";
+                this.mensagem = "Erro na criação do arquivo JSON. Mensagem: " + e.Message;
             }
             catch (Exception e)
             {

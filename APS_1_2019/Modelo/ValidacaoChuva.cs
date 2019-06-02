@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace APS_1_2019.Modelo
+﻿namespace APS_1_2019.Modelo
 {
     public class ValidacaoChuva : absPropriedades
     {
@@ -20,7 +14,7 @@ namespace APS_1_2019.Modelo
             }
             else
             {
-                EstadoChuva = "Sem chuva";
+                EstadoChuva = "Sem Chuva";
             }
         }
     }

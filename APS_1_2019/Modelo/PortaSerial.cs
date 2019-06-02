@@ -36,13 +36,13 @@ namespace APS_1_2019.Modelo
                 //fecha a conexão para a porta parar de ser utilizada
                 arduinoData.Close();
             }
-            catch (IOException)
+            catch (IOException e)
             {
-                this.mensagem = "A porta serial " + Configuracao.nomePorta + " não pode ser acessada. Talvez a porta de entrada esteja errada.";
+                this.mensagem = "A porta serial " + Configuracao.nomePorta + " não pode ser acessada. Talvez a porta de entrada esteja errada. Mensagem: " + e.Message;
             }
             catch (Exception e)
             {
-                this.mensagem = "Classe PortaSerial" + e.Message;
+                this.mensagem = "Classe PortaSerial " + e.Message;
             }
         }
 
